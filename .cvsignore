@@ -28,6 +28,3 @@ configure.vrs
 dir.info
 Makefile
 lost+found
-update.out
-update.sourceware
-autom4te.cache
