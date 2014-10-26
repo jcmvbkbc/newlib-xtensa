@@ -13,6 +13,8 @@ _BEGIN_STD_C
 
 void	_EXFUN(longjmp,(jmp_buf __jmpb, int __retval));
 int	_EXFUN(setjmp,(jmp_buf __jmpb));
+#define setjmp(env) setjmp(env)
+
 
 _END_STD_C
 

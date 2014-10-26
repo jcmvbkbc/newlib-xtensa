@@ -76,8 +76,13 @@ typedef uint16_t  	uint_least8_t;
 #endif
 
 #if __have_long32
+#if TENSILICA || 1
+typedef signed int int32_t;
+typedef unsigned int uint32_t;
+#else
 typedef signed long int32_t;
 typedef unsigned long uint32_t;
+#endif
 #define __int32_t_defined 1
 #elif __STDINT_EXP(INT_MAX) == 0x7fffffffL
 typedef signed int int32_t;

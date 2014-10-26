@@ -572,7 +572,7 @@ PACKAGE_STRING='newlib 2.0.0'
 PACKAGE_BUGREPORT=''
 PACKAGE_URL=''
 
-ac_unique_file="a29khif"
+ac_unique_file="xtensa"
 # Factoring default headers for most tests.
 ac_includes_default="\
 #include <stdio.h>
@@ -809,6 +809,7 @@ sysvi386
 sysvnecv70
 tic80
 w65
+xtensa
 z8ksim'
 
 # Initialize some variables set by options.
@@ -11844,6 +11845,8 @@ subdirs="$subdirs a29khif"
 	tic80) subdirs="$subdirs tic80"
  ;;
 	w65) subdirs="$subdirs w65"
+ ;;
+	xtensa) subdirs="$subdirs xtensa"
  ;;
 	z8ksim) subdirs="$subdirs z8ksim"
  ;;
