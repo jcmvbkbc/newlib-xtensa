@@ -49,6 +49,7 @@ if test -n "${sys_dir}"; then
 	tic80) AC_CONFIG_SUBDIRS(tic80) ;;
 	tirtos) AC_CONFIG_SUBDIRS(tirtos) ;;
 	w65) AC_CONFIG_SUBDIRS(w65) ;;
+	xtensa) AC_CONFIG_SUBDIRS(xtensa) ;;
 	z8ksim) AC_CONFIG_SUBDIRS(z8ksim) ;;
   esac;
 fi

@@ -80,6 +80,7 @@ if test -n "${machine_dir}"; then
 	x86_64) AC_CONFIG_SUBDIRS(x86_64) ;;
 	xc16x) AC_CONFIG_SUBDIRS(xc16x) ;;
 	xstormy16) AC_CONFIG_SUBDIRS(xstormy16) ;;
+	xtensa) AC_CONFIG_SUBDIRS(xtensa) ;;
 	z8k) AC_CONFIG_SUBDIRS(z8k) ;;
   esac;
 fi

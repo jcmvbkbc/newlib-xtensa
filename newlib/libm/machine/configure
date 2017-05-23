@@ -793,7 +793,8 @@ nds32
 pru
 spu
 riscv
-x86_64'
+x86_64
+xtensa'
 
 # Initialize some variables set by options.
 ac_init_help=
@@ -11821,6 +11822,8 @@ subdirs="$subdirs aarch64"
 	riscv) subdirs="$subdirs riscv"
  ;;
 	x86_64) subdirs="$subdirs x86_64"
+ ;;
+	xtensa) subdirs="$subdirs xtensa"
  ;;
   esac;
   if test "${use_libtool}" = "yes"; then

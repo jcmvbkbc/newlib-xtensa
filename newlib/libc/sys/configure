@@ -813,6 +813,7 @@ sysvnecv70
 tic80
 tirtos
 w65
+xtensa
 z8ksim'
 
 # Initialize some variables set by options.
@@ -11877,6 +11878,8 @@ subdirs="$subdirs a29khif"
 	tirtos) subdirs="$subdirs tirtos"
  ;;
 	w65) subdirs="$subdirs w65"
+ ;;
+	xtensa) subdirs="$subdirs xtensa"
  ;;
 	z8ksim) subdirs="$subdirs z8ksim"
  ;;

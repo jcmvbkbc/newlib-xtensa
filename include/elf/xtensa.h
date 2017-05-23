@@ -137,7 +137,7 @@ typedef struct property_table_entry_t
    block is specified in the current block and the size of the current
    block does not include any fill required to align to the next
    block.  */
-   
+
 #define XTENSA_PROP_LITERAL		0x00000001
 #define XTENSA_PROP_INSN		0x00000002
 #define XTENSA_PROP_DATA		0x00000004
@@ -148,7 +148,7 @@ typedef struct property_table_entry_t
 /* Instruction-only properties about code. */
 #define XTENSA_PROP_INSN_NO_DENSITY	0x00000040
 #define XTENSA_PROP_INSN_NO_REORDER	0x00000080
-/* Historically, NO_TRANSFORM was a property of instructions, 
+/* Historically, NO_TRANSFORM was a property of instructions,
    but it should apply to literals under certain circumstances.  */
 #define XTENSA_PROP_NO_TRANSFORM	0x00000100
 
