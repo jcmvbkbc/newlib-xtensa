@@ -182,6 +182,9 @@ case "${target}" in
   nios2-*-*)
 	AC_CONFIG_SUBDIRS([nios2])
 	;;
+  xtensa*-*-*)
+	AC_CONFIG_SUBDIRS([xtensa])
+	;;
 esac
 
 dnl For now, don't bother configuring testsuite
