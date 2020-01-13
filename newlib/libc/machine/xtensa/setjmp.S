@@ -56,10 +56,7 @@
 
 #include "xtensa-asm.h"
 
-#define SYS_nop	0
-
-
-#if XCHAL_HAVE_WINDOWED && !__XTENSA_CALL0_ABI__
+#ifdef __XTENSA_WINDOWED_ABI__
 
 /* int setjmp (jmp_buf env) */
 
@@ -69,13 +66,10 @@
 	.global	setjmp
 	.type	setjmp, @function
 setjmp:
-	entry	sp, 16
+	leaf_entry sp
 
 	/* Flush registers.  */
-	mov	a4, a2			// save a2 (jmp_buf)
-	movi	a2, SYS_nop
-	syscall
-	mov	a2, a4			// restore a2
+	call4	__window_spill
 
 	/* Copy the register save area at (sp - 16).  */
 	addi	a5, a1, -16
@@ -135,25 +129,11 @@ setjmp:
 	.global	longjmp
 	.type	longjmp, @function
 longjmp:
-	entry	sp, 16
+	leaf_entry sp
 	/*  a2 == &env, a3 == val  */
 
-#if XCHAL_MAYHAVE_ERRATUM_XEA1KWIN
-  /* Using this register triggers early any overflow that a kernel-mode
-     level-one interrupt might otherwise cause.  */
-# define AR_WB	a15
-#else
-  /* Using this register is more efficient; it triggers less overflows.  */
-# define AR_WB	a5
-#endif
-	/* Invalidate all but the current window;
-	   set WindowStart to (1 << WindowBase).  */
-	rsr	AR_WB, WINDOWBASE
-	movi	a4, 1
-	ssl	AR_WB
-	sll	a4, a4
-	wsr	a4, WINDOWSTART
-	rsync
+	/* Invalidate all but the current window.  */
+	call4	__window_spill
 
 	/* Return to the return address of the setjmp, using the
 	   window size bits from the setjmp call so that the caller
@@ -255,6 +235,6 @@ longjmp:
 	movnez	a2, a3, a3
 
 	ret
-	.size	longjmp, .-longjmp
+	.size	longjmp, . - longjmp
 
 #endif /* CALL0 ABI */
